@@ -4,7 +4,9 @@
   "description": "music-server",
   "main": "server.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'No build step required'",
+    "start": "node api/songs.mjs"
   },
   "author": "",
   "license": "ISC",
