@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const app = express();
-const songsFolder = join(__dirname, 'songs');
+const songsFolder = join(__dirname, '../songs');
 
 // Use the CORS middleware to allow requests from specific origins
 app.use(cors({
