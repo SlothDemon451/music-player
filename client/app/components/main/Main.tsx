@@ -23,11 +23,7 @@ export default function Main() {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const apiUrl = process.env.REACT_APP_SONGS_API_URL;
-                if (!apiUrl) {
-                    throw new Error('API URL is not defined in the environment variables');
-                }
-                const response = await fetch(apiUrl);
+                const response = await fetch('https://music-player-rouge-six.vercel.app/api/songs');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
