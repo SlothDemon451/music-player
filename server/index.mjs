@@ -12,7 +12,7 @@ const songsFolder = join(__dirname, './songs');
 
 // Use the CORS middleware to allow requests from specific origins
 app.use(cors({
-    origin: 'https://zyn-station.vercel.app/' // Allow requests from this origin
+    origin: 'https://zyn-station.vercel.app' // Allow requests from this origin
 }));
 
 function formatDuration(duration) {
