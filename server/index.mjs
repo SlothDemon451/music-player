@@ -12,7 +12,7 @@ const songsFolder = join(__dirname, './songs');
 
 // Use the CORS middleware to allow requests from specific origins
 app.use(cors({
-    origin: 'http://localhost:3000' // Allow requests from this origin
+    origin: 'https://music-player-rouge-six.vercel.app/api/songs' // Allow requests from this origin
 }));
 
 function formatDuration(duration) {
