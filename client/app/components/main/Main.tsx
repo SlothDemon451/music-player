@@ -3,6 +3,8 @@ import MidBar from '../ui/MidBar';
 import TopBar from '../ui/TopBar';
 import Table from '../ui/Table';
 import { useEffect, useState } from 'react';
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Song {
     title: string;
@@ -21,7 +23,11 @@ export default function Main() {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const response = await fetch('https://music-player-rouge-six.vercel.app/api/songs');
+                const apiUrl = process.env.REACT_APP_SONGS_API_URL;
+                if (!apiUrl) {
+                    throw new Error('API URL is not defined in the environment variables');
+                }
+                const response = await fetch(apiUrl);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

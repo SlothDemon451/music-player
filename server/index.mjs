@@ -5,6 +5,8 @@ import { parseFile } from 'music-metadata';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { format } from 'date-fns';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const app = express();
@@ -12,7 +14,7 @@ const songsFolder = join(__dirname, './songs');
 
 // Use the CORS middleware to allow requests from specific origins
 app.use(cors({
-    origin: 'https://zyn-station.vercel.app' // Allow requests from this origin
+    origin: process.env.CORS_ORIGIN // Allow requests from this origin
 }));
 
 function formatDuration(duration) {
