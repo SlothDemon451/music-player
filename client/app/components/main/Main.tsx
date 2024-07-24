@@ -29,7 +29,7 @@ export default function Main({ onSongSelect }: MainProps) {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const response = await fetch('http://localhost:3001/api/songs');
+                const response = await fetch('https://music-player-rouge-six.vercel.app/api/songs');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

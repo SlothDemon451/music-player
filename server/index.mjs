@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 
 // Use the CORS middleware to allow requests from specific origins
 app.use(cors({
-    origin: 'http://localhost:3000' // Allow requests from this origin
+    origin: 'https://zyn-station.vercel.app/' // Allow requests from this origin
 }));
 
 function formatDuration(duration) {
