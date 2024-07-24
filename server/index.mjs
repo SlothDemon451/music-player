@@ -11,7 +11,6 @@ import mongoose from 'mongoose';
 import Song from './models/Song.js'; // Import the Song model
 
 dotenv.config();
-console.log('MONGODB_URI:', process.env.MONGODB_URI);
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const app = express();
