@@ -2,7 +2,7 @@
 import MidBar from '../ui/MidBar';
 import TopBar from '../ui/TopBar';
 import Table from '../ui/Table';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,9 +13,15 @@ interface Song {
     releaseDate: string;
     duration: string;
     cover: string;
+    audioUrl: string;
 }
 
-export default function Main() {
+interface MainProps {
+    onSongSelect: (song: Song) => void;
+}
+
+
+export default function Main({ onSongSelect }: MainProps) {
     const [songs, setSongs] = useState<Song[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -23,7 +29,7 @@ export default function Main() {
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const response = await fetch('https://music-player-rouge-six.vercel.app/api/songs');
+                const response = await fetch('http://localhost:3001/api/songs');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -52,7 +58,7 @@ export default function Main() {
                 <div className="w-[97%] mx-auto">
                     <TopBar />
                     <MidBar />
-                    <Table songs={songs}/>
+                    <Table songs={songs} onSongSelect={onSongSelect}/>
                 </div>
             </div>
         </>

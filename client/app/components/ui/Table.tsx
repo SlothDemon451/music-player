@@ -9,13 +9,15 @@ interface Song {
     releaseDate: string;
     duration: string;
     cover: string;
+    audioUrl: string;
 }
 
 interface TableProps {
     songs: Song[];
+    onSongSelect: (song: Song) => void;
 }
 
-export default function Table({ songs }: TableProps) {  
+export default function Table({ songs, onSongSelect }: TableProps) {  
     return (
         <div className="flex flex-col mt-4">
             <table className="table-auto w-full">
@@ -33,7 +35,7 @@ export default function Table({ songs }: TableProps) {
                 <table className="table-auto w-full">
                     <tbody>
                     {songs.map((song, index) => (
-                    <tr key={index}>
+                    <tr key={index} onClick={() => onSongSelect(song)}>
                         <td className="w-[3%] text-primary font-normal">{index + 1}</td>
                         <td className="w-[41%] text-primary">
                             <div className='flex py-1'>
